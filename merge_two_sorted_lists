@@ -6,22 +6,21 @@ Output: 1->1->2->3->4->4
 
 """
 
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
 class Solution(object):
-    def isValid(self, s):
+    def mergeTwoLists(self, l1, l2):
         """
-        :type s: str
-        :rtype: bool
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
         """
-        dict = {')':'(', '}':'{', ']':'[' }
-        stack = []
-        if len(s) <= 1:
-            return False
-        for item in s:
-            if item in dict.values():
-                stack.append(item)
-            elif item in dict.keys():
-                if stack == [] or dict[item] != stack.pop():
-                    return False
-            else:
-                return False
-        return stack == []
+        if l1 and l2:
+            if l1.val > l2.val:
+                l1 , l2 = l2 , l1
+            l1.next = self.mergeTwoLists(l1.next,l2)
+        return l1 or l2
