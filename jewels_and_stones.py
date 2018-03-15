@@ -7,6 +7,9 @@ jewels.
 The letters in J are guaranteed distinct, and all characters in J and S
 are letters. Letters are case sensitive, so "a" is considered a different
 type of stone from "A".
+
+Input: J = "aA", S = "aAAbbbb"
+Output: 3
 """
 
 class Solution(object):
